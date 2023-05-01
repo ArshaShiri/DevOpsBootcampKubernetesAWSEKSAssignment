@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+data:
+  # value is retried via kubectl get svc
+  db_server: my-release-mysql-primary
