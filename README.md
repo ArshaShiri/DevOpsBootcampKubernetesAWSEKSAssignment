@@ -35,3 +35,6 @@ The command line tool can be downloaded [here](https://eksctl.io/).
      # ip-192-168-16-181.eu-central-1.compute.internal   Ready    <none>   5m52s   v1.25.7-eks-a59e1f0
      # ip-192-168-60-5.eu-central-1.compute.internal     Ready    <none>   5m55s   v1.25.7-eks-a59e1f0
      # ip-192-168-75-235.eu-central-1.compute.internal   Ready    <none>   5m48s   v1.25.7-eks-a59e1f0
+
+## EXERCISE 2: Deploy Mysql and phpmyadmin
+* You deploy mysql and phpmyadmin on EC2 nodes with the same setup as before.
