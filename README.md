@@ -67,3 +67,43 @@ As demonstrated [here](https://github.com/ArshaShiri/DevOpsBootcampKubernetesAss
 ## EXERCISE 3: Deploy your Java application
 * You deploy your Java application using Fargate with 3 replicas and same setup as before
 
+**Solution:**
+
+    # We first create the Fargate profile
+    eksctl create fargateprofile \
+    --cluster demo-cluster \
+    --name my-fargate-profile \
+    --namespace my-app
+
+    # Confirm the creation of the profile
+    eksctl get fargateprofile --cluster demo-cluster
+
+    # Now deploy the java app:
+
+    # Have the same namespace as the Fargate profile
+    kubectl create namespace my-app
+
+    # Create my-registry-key secret to pull image 
+    DOCKER_REGISTRY_SERVER=docker.io
+    DOCKER_USER=email-address
+    DOCKER_EMAIL=email-address
+    DOCKER_PASSWORD=password
+
+    # Create the associated secrete
+    kubectl create secret -n my-app docker-registry my-registry-key \
+    --docker-server=$DOCKER_REGISTRY_SERVER \
+    --docker-username=$DOCKER_USER \
+    --docker-password=$DOCKER_PASSWORD \
+    --docker-email=$DOCKER_EMAIL
+
+    # Similar to exercise 2, we apply the config files but with the my-app namespace flag.
+    # This makes them to be deployed in Fargate.
+    kubectl apply -f db-secret.yaml -n my-app
+    kubectl apply -f db-config.yaml -n my-app
+    kubectl apply -f java-app.yaml -n my-app
+
+    kubectl get pod -n my-app
+     # NAME                                   READY   STATUS    RESTARTS   AGE
+     # java-app-deployment-7fd446c545-88pdf   0/1     Pending   0          14s
+     # java-app-deployment-7fd446c545-8gk5d   0/1     Pending   0          14s
+     # java-app-deployment-7fd446c545-jrt24   0/1     Pending   0          14s
