@@ -64,3 +64,6 @@ As demonstrated [here](https://github.com/ArshaShiri/DevOpsBootcampKubernetesAss
     # "my-user" : "my-pass"
     # "root" : "secret-root-pass"
 
+## EXERCISE 3: Deploy your Java application
+* You deploy your Java application using Fargate with 3 replicas and same setup as before
+
