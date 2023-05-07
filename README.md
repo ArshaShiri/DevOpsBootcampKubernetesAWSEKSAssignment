@@ -107,3 +107,9 @@ As demonstrated [here](https://github.com/ArshaShiri/DevOpsBootcampKubernetesAss
      # java-app-deployment-7fd446c545-88pdf   0/1     Pending   0          14s
      # java-app-deployment-7fd446c545-8gk5d   0/1     Pending   0          14s
      # java-app-deployment-7fd446c545-jrt24   0/1     Pending   0          14s
+
+## EXERCISE 4: Automate deployment
+
+Now your application is running. And when you or others make changes to it, Jenkins pipeline builds the new image, but you have to manually deploy it into the cluster. But you know how annoying that is for you and your team from experience, so you want to automate deploying to the cluster as well.
+
+* Setup automatic deploying to the cluster in the pipeline.
