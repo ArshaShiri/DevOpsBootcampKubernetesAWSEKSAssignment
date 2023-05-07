@@ -127,3 +127,11 @@ Here the AWS CLI installation path is explained:
   * These instructions are followed: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 
+
+
+## EXERCISE 5: Use ECR as Docker repository
+Now your manager comes and tells you that all the projects in the company have containerized their applications, so there is no need for keeping and managing Nexus on the Droplet. Also since all projects have CI/CD there are hundreds of images pushed per day to Nexus repository and you need to manage the storage and cleanup policies to make space.
+
+So, company wants to use ECR instead, again to have everything on 1 platform and also to let AWS manage the repository with storage, cleanups etc.
+
+* Therefore, you need to replace the docker repository in your pipeline with **ECR**
