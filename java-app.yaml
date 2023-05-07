@@ -1,24 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: java-app-deployment
+  name: $APP_NAME-deployment
+  namespace: $APP_NAMESPACE
   labels:
-    app: java-app
+    app: $APP_NAME
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: java-app
+      app: $APP_NAME
   template:
     metadata:
       labels:
-        app: java-app
+        app: $APP_NAME
     spec:
       imagePullSecrets:
       - name: my-registry-key
       containers:
-      - name: javamysqlapp
-        image: arshashiri/java-sql:1.0
+      - name: $APP_NAME
+        image: $IMAGE_REPO:$IMAGE_NAME
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
@@ -46,10 +48,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: java-app-service
+  name: $APP_NAME-service
+  namespace: $APP_NAMESPACE
 spec:
   selector:
-    app: java-app
+    app: $APP_NAME
   ports:
   - protocol: TCP
     port: 8080

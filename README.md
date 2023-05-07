@@ -113,3 +113,17 @@ As demonstrated [here](https://github.com/ArshaShiri/DevOpsBootcampKubernetesAss
 Now your application is running. And when you or others make changes to it, Jenkins pipeline builds the new image, but you have to manually deploy it into the cluster. But you know how annoying that is for you and your team from experience, so you want to automate deploying to the cluster as well.
 
 * Setup automatic deploying to the cluster in the pipeline.
+
+**Solution:**
+
+We can either follow the steps in [DevOpsBootcampEKSFromJenkinsDemo](https://github.com/ArshaShiri/DevOpsBootcampEKSFromJenkinsDemo) repository with IAM authenticator or use AWS CLI from the Jenkins container.
+
+Here the AWS CLI installation path is explained:
+
+* In the Jenkins container, install AWS CLI.
+  * These instructions are followed: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+* In the Jenkins container, install Kubectl:
+  * These instructions are followed: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+
