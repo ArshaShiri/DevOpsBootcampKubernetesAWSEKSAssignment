@@ -135,3 +135,7 @@ Now your manager comes and tells you that all the projects in the company have c
 So, company wants to use ECR instead, again to have everything on 1 platform and also to let AWS manage the repository with storage, cleanups etc.
 
 * Therefore, you need to replace the docker repository in your pipeline with **ECR**
+
+**Solution:**
+
+The steps in [DevOpsBootcampEKSCompletePipelineECR](https://github.com/ArshaShiri/DevOpsBootcampEKSCompletePipelineECR) repository are followed.
